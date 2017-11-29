@@ -18,9 +18,10 @@ router.get('/burgers', function(req, res) {
 		});
 });
 
-router.post('/burgers/create', function(req, res) {
+router.post('/create', function(req, res) {
 		// console.log(req.body.burger_name, "=new burger name")
-		burger.create(['burger_name'], [req.body.name], function() {
+		burger.create(['burger_name'], [req.body.name], function(result) {
+			console.log("controller result", result)
 			res.redirect('/burgers');
 		});
 });
